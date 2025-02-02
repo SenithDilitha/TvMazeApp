@@ -7,11 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\TvMazeApp.Application\TvMazeApp.Application.csproj" />
+    <ProjectReference Include="..\TvMazeApp.Domain\TvMazeApp.Domain.csproj" />
+    <ProjectReference Include="..\TvMazeApp.Infrastructure\TvMazeApp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
