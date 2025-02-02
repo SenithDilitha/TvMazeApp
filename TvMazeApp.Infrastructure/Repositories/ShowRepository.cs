@@ -35,4 +35,33 @@ public class ShowRepository : IShowRepository
     {
         await _context.SaveChangesAsync();
     }
+
+    public async Task<Show?> FindByIdNameAndLanguageAsync(int id, string name, string language)
+    {
+        return await _context.Shows
+            .FirstOrDefaultAsync(s => s.Id == id || (s.Name == name && s.Language == language));
+    }
+
+    public async Task UpdateAsync(Show show)
+    {
+        var existingShow = await _context.Shows.FindAsync(show.Id);
+        if (existingShow == null)
+        {
+            throw new KeyNotFoundException($"Show with ID {show.Id} not found.");
+        }
+
+        _context.Entry(existingShow).CurrentValues.SetValues(show);
+        _context.Shows.Update(existingShow);
+    }
+
+    public async Task DeleteAsync(Show show)
+    {
+        var existingShow = await _context.Shows.FindAsync(show.Id);
+        if (existingShow == null)
+        {
+            throw new KeyNotFoundException($"Show with ID {show.Id} not found.");
+        }
+
+        _context.Shows.Remove(existingShow);
+    }
 }

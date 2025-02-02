@@ -8,4 +8,7 @@ public interface IShowRepository
     Task AddAsync(Show show);
     Task<Show?> GetLastShowAsync();
     Task SaveChangesAsync();
+    Task<Show?> FindByIdNameAndLanguageAsync(int id, string name, string language);
+    Task UpdateAsync(Show show);
+    Task DeleteAsync(Show show);
 }

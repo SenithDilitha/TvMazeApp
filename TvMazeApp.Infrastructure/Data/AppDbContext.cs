@@ -12,15 +12,18 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Show>()
-            .HasKey(s => s.Id);
+        modelBuilder.Entity<Show>(entity =>
+        {
+            entity.HasKey(s => s.Id);
+            entity.Property(s => s.Id).ValueGeneratedNever();
+            entity.HasMany(s => s.Genres).WithMany(g => g.Shows);
+            entity.HasIndex(s => new { s.Name, s.Language });
+            entity.HasIndex(s => s.Name);
+        });
 
-        modelBuilder.Entity<Show>()
-            .Property(s => s.Id)
-            .ValueGeneratedNever();
-
-        modelBuilder.Entity<Show>()
-            .HasMany(x => x.Genres)
-            .WithMany(y => y.Shows);
+        modelBuilder.Entity<Genre>(entity =>
+        {
+            entity.HasIndex(g => g.Name).IsUnique();
+        });
     }
 }
