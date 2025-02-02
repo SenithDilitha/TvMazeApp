@@ -1,0 +1,13 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0c71edc6_002D585c_002D434f_002Dad10_002D2b383104038b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="FetchAndStoreShowsAsync_ShouldSkipOldShows" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::17F10251-AE94-4F25-8A23-8718F3ADFAEA::net8.0::TvMazeApp.UnitTests.Services.ShowServiceTests.FetchAndStoreShowsAsync_ShouldSkipOldShows&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::17F10251-AE94-4F25-8A23-8718F3ADFAEA::net8.0::TvMazeApp.UnitTests.Services.ShowServiceTests.AddShowAsync_ShouldThrowException_WhenShowAlreadyExists&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ae92040b_002D0b13_002D4343_002D842e_002D10379042eb46/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddShowAsync_ShouldThrowException_WhenShowAlreadyExists" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::17F10251-AE94-4F25-8A23-8718F3ADFAEA::net8.0::TvMazeApp.UnitTests.Services.ShowServiceTests.AddShowAsync_ShouldThrowException_WhenShowAlreadyExists&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::17F10251-AE94-4F25-8A23-8718F3ADFAEA::net8.0::TvMazeApp.UnitTests.Services.ShowServiceTests.FetchAndStoreShowsAsync_ShouldSkipOldShows&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
