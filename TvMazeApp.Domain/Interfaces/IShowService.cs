@@ -5,6 +5,7 @@ namespace TvMazeApp.Domain.Interfaces;
 
 public interface IShowService
 {
+    Task<IEnumerable<ShowDto>> GetAllShowsAsync();
     Task FetchAndStoreShowsAsync();
     Task AddShowAsync(ShowDto showDto); 
     Task UpdateShowAsync(int id, ShowDto showDto);

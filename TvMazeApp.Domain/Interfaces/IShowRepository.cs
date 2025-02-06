@@ -11,4 +11,5 @@ public interface IShowRepository
     Task<Show?> FindByIdNameAndLanguageAsync(int id, string name, string language);
     Task UpdateAsync(Show show);
     Task DeleteAsync(Show show);
+    Task<IEnumerable<Show>> GetAllAsync();
 }

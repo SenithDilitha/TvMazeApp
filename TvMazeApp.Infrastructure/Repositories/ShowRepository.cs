@@ -64,4 +64,11 @@ public class ShowRepository : IShowRepository
 
         _context.Shows.Remove(existingShow);
     }
+
+    public async Task<IEnumerable<Show>> GetAllAsync()
+    {
+        return await _context.Shows
+            .Include(s => s.Genres)
+            .ToListAsync();
+    }
 }

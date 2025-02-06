@@ -184,6 +184,38 @@ public class ShowService : IShowService
         }
     }
 
+    public async Task<IEnumerable<ShowDto>> GetAllShowsAsync()
+    {
+        try
+        {
+            _logger.LogInformation("Fetching all shows from the database.");
+
+            var shows = await _showRepository.GetAllAsync();
+
+            var showDtos = shows
+                .OrderByDescending(show => show.Premiered)
+                .Select(show => new ShowDto
+                {
+                    Id = show.Id,
+                    Name = show.Name,
+                    Language = show.Language,
+                    Premiered = show.Premiered,
+                    Summary = show.Summary,
+                    Genres = show.Genres.Select(g => g.Name).ToList()
+                });
+
+            _logger.LogInformation("Successfully fetched {Count} shows.", showDtos.Count());
+            return showDtos;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error occurred while fetching all shows.");
+            throw;
+        }
+    }
+
+
+
     private Show MapShowDtoToEntity(ShowDto showDto, Dictionary<string, Genre> existingGenresDict)
     {
         return new Show

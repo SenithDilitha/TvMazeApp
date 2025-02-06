@@ -82,4 +82,19 @@ public class ShowsController : ControllerBase
     }
 
 
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<ShowDto>>> GetAllShows()
+    {
+        try
+        {
+            var shows = await _showService.GetAllShowsAsync();
+            return Ok(shows);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "An error occurred", details = ex.Message });
+        }
+    }
+
+
 }
