@@ -81,7 +81,6 @@ public class ShowsController : ControllerBase
         }
     }
 
-
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ShowDto>>> GetAllShows()
     {
@@ -96,5 +95,17 @@ public class ShowsController : ControllerBase
         }
     }
 
-
+    [HttpGet("{id}")]
+    public async Task<ActionResult<ShowDto>> GetShow(int id)
+    {
+        try
+        {
+            var show = await _showService.GetShowAsync(id);
+            return show != null ? Ok(show) : NotFound();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest( new { message = "An error occurred", details = ex.Message });
+        }
+    }
 }

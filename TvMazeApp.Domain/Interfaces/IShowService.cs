@@ -10,4 +10,5 @@ public interface IShowService
     Task AddShowAsync(ShowDto showDto); 
     Task UpdateShowAsync(int id, ShowDto showDto);
     Task DeleteShowAsync(int id);
+    Task<ShowDto> GetShowAsync(int id);
 }

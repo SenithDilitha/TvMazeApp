@@ -184,6 +184,32 @@ public class ShowService : IShowService
         }
     }
 
+    public async Task<ShowDto?> GetShowAsync(int id)
+    {
+        try
+        {
+            _logger.LogInformation("Fetching show with ID: {ShowId}", id);
+            var show = await _showRepository.GetByIdAsync(id);
+            
+            var showDto = new ShowDto
+            {
+                Id = show.Id,
+                Name = show.Name,
+                Language = show.Language,
+                Premiered = show.Premiered,
+                Summary = show.Summary,
+                Genres = show.Genres.Select(g => g.Name).ToList()
+            };
+
+            return showDto;
+        }
+        catch(Exception ex)
+        {
+            _logger.LogError(ex, "Error fetching show with ID: {ShowId}", id);
+            throw;
+        }
+    }
+
     public async Task<IEnumerable<ShowDto>> GetAllShowsAsync()
     {
         try
